@@ -1,0 +1,45 @@
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+
+[tool.ruff.format]
+quote-style = "single"
+skip-magic-trailing-comma = false
+indent-style = "space"
+
+[tool.ruff.lint]
+# Docstring rules: D203 (require blank line before class docstring), D213 (multi-line summary on second line)
+select = [
+	"E",  # pycodestyle errors
+	"W",  # pycodestyle warnings
+	"F",  # pyflakes
+	"I",  # isort
+	"Q",  # flake8-quotes (enforces single quotes)
+	"COM",  # flake8-commas (trailing commas)
+	"ISC",  # flake8-implicit-str-concat
+	"D203",  # blank line before class docstring
+	"D213",  # multi-line summary on second line
+	"D",  # pydocstyle (other docstring conventions)
+	"UP",  # pyupgrade
+	"N",  # pep8-naming
+	"PL",  # pylint
+	"C90",  # mccabe (complexity)
+	"ERA",  # eradicate (commented-out code)
+	"EXE",  # flake8-executable (shebang/exec perms)
+	"W292", # no newline at end of file
+]
+# Note: D203/D211 and D212/D213 are incompatible. Only enable one of each pair to avoid warnings.
+
+[tool.ruff.lint.isort]
+combine-as-imports = true
+force-single-line = false
+
+# Suggestions for other useful rules/checks:
+# - "D" (pydocstyle): Enforce docstring conventions
+# - "UP" (pyupgrade): Modernize syntax for newer Python versions
+# - "N" (pep8-naming): Enforce naming conventions
+# - "PL" (pylint): Additional lint checks
+# - "C90" (mccabe): Limit code complexity
+# - "ERA" (eradicate): Remove commented-out code
+# - "EXE" (flake8-executable): Check for executable bit/shebang

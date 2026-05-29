@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.FileMagic/
+env/
+
+# Build artifacts
+dist/
+build/
+*.egg
+*.whl
+*.tar.gz
+
+# VSCode / IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env files (put example values in .env.example instead)
+.env
+.env.local
+.env.*.local
+
+# Virtual Environments
+.venv/
+venv/
+
+# Documents
+*.dxf
+*.dw*
