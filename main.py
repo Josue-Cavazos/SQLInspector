@@ -1,20 +1,19 @@
-from data_loader.data_loader import SQLLoader
 import pandas as pd
+
+from data_loader.data_loader import SQLLoader
+
 
 def getSchemaDataModel(df):
     pk_candidates = [col for col in df.columns if df[col].is_unique and df[col].notna().all()]
     total_records = len(df)
-
-    if "ID" in pk_candidates:
-        return ["ID"], total_records
 
     return pk_candidates, total_records
 
 def getDataQuality(df):
     quality_report = pd.concat([
         df.isnull().sum(),
-        (df.isnull().mean() * 100).round(2)
-    ], axis=1, keys=['Total Nulls', 'Percentage (%)'])
+        (df.isnull().mean() * 100).round(2),
+    ], axis=1, keys=["Total Nulls", "Percentage (%)"])
     duplicate_rows = df[df.duplicated(keep=False)]
     num_duplicates = len(duplicate_rows)
     return quality_report, num_duplicates, duplicate_rows
